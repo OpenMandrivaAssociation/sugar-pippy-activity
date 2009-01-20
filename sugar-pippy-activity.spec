@@ -12,11 +12,11 @@ Source: http://dev.laptop.org/pub/sugar/sources/Pippy/Pippy-25.tar.bz2
 
 Patch: sugar-pippy-activity-25-olpc-4218.patch
 
-Requires: sugar-toolkit >= 0.83.3
+Requires: sugar-toolkit >= 0.83.4
 Requires: python-gtksourceview  
 Requires: python  
 
-BuildRequires: sugar-toolkit >= 0.83.3
+BuildRequires: sugar-toolkit >= 0.83.4
 BuildRequires: libpython-devel  
 BuildRequires: gettext  
 
