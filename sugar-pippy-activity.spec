@@ -14,11 +14,11 @@ Patch: sugar-pippy-activity-25-olpc-4218.patch
 
 Requires: python-gtksourceview  
 Requires: python  
-Requires: sugar-toolkit >= 0.84.0
+Requires: sugar-toolkit >= 0.84.2
 
 BuildRequires: gettext  
 BuildRequires: libpython-devel  
-BuildRequires: sugar-toolkit >= 0.84.0
+BuildRequires: sugar-toolkit >= 0.84.2
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: noarch
