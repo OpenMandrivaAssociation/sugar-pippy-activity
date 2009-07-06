@@ -37,18 +37,19 @@ various aspects of the language.
 %patch -p1
 
 %build
-python  \
-	setup.py \
-	build
+
+rm -f MANIFEST
+python setup.py build
 
 %install
 rm -rf %{buildroot}
-chmod 0755 setup.py
-chmod 0755 library/pippy/sound.py
-python  \
-	setup.py \
-	install \
-	--prefix=%{buildroot}/%{_prefix}
+python setup.py install --prefix=%{buildroot}/%{_prefix}
+find %{buildroot} -name '*.py.orig' -print0 | xargs -0 rm -f
+%ifarch x86_64
+rm -rf {buildroot}/%_datadir/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux32
+%else
+rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux64
+%endif
 %find_lang org.laptop.Pippy
 
 %clean
