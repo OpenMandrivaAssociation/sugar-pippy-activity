@@ -3,7 +3,7 @@
 
 Name: sugar-pippy-activity
 Version: 34
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
@@ -12,6 +12,7 @@ Url: http://sugarlabs.org/
 Source: http://download.sugarlabs.org/sources/sucrose/fructose/Pippy/Pippy-34.tar.bz2
 
 Patch: sugar-pippy-activity-34-olpc-4218.patch
+Patch1: sugar-pippy-activity-34-sugar-1058.patch
 
 Requires: python-gtksourceview  
 Requires: python  
@@ -36,6 +37,7 @@ various aspects of the language.
 %prep
 %setup -q -n Pippy-34
 %patch -p1
+%patch1 -p1
 
 %build
 
