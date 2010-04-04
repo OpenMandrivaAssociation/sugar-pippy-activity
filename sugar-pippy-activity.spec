@@ -16,11 +16,11 @@ Patch1: sugar-pippy-activity-34-sugar-1058.patch
 
 Requires: python-gtksourceview  
 Requires: python  
-Requires: sugar-toolkit >= 0.86.1
+Requires: sugar-toolkit >= 0.88.0
 
 BuildRequires: gettext  
 BuildRequires: libpython-devel  
-BuildRequires: sugar-toolkit >= 0.86.1
+BuildRequires: sugar-toolkit >= 0.88.0
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -48,8 +48,7 @@ python setup.py build
 rm -rf %{buildroot}
 python setup.py install --prefix=%{buildroot}/%{_prefix}
 find %{buildroot} -name '*.py.orig' -print0 | xargs -0 rm -f
-[ "`arch | grep i[0-9]86`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux32
-[ "`arch | grep x86_64`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux64
+rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics
 %find_lang org.laptop.Pippy
 
 %clean
