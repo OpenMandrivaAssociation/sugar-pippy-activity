@@ -3,7 +3,7 @@
 
 Name: sugar-pippy-activity
 Version: 34
-Release: %mkrel 2
+Release: 3
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
@@ -16,14 +16,12 @@ Patch1: sugar-pippy-activity-34-sugar-1058.patch
 
 Requires: python-gtksourceview  
 Requires: python  
-Requires: sugar-toolkit >= 0.88.0
+Requires: sugar-toolkit >= 0.86.1
 
 BuildRequires: gettext  
-BuildRequires: libpython-devel  
-BuildRequires: sugar-toolkit >= 0.88.0
-
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
+BuildRequires: python-devel  
+BuildRequires: sugar-toolkit >= 0.86.1
+BuildArch:	noarch
 
 %description
 Teaches Python programming by providing access to Python code samples
@@ -40,22 +38,17 @@ various aspects of the language.
 %patch1 -p1
 
 %build
-
 rm -f MANIFEST
 python setup.py build
 
 %install
-rm -rf %{buildroot}
 python setup.py install --prefix=%{buildroot}/%{_prefix}
 find %{buildroot} -name '*.py.orig' -print0 | xargs -0 rm -f
-rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics
+[ "`arch | grep i[0-9]86`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux32
+[ "`arch | grep x86_64`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux64
 %find_lang org.laptop.Pippy
 
-%clean
-rm -rf %{buildroot}
-
 %files -f org.laptop.Pippy.lang
-%defattr(-,root,root,-)
 %{_datadir}/sugar/activities/*
 %doc NEWS
 
