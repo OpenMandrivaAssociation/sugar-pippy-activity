@@ -2,25 +2,24 @@
 #       See http://wiki.sugarlabs.org/go/Deployment_Team/jhconvert for details
 
 Name: sugar-pippy-activity
-Version: 34
-Release: 3
+Version: 59
+Release: 1
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
 Url: http://sugarlabs.org/
 
-Source: http://download.sugarlabs.org/sources/sucrose/fructose/Pippy/Pippy-34.tar.bz2
+Source: http://download.sugarlabs.org/sources/sucrose/fructose/Pippy/Pippy-%{version}.tar.bz2
 
-Patch: sugar-pippy-activity-34-olpc-4218.patch
-Patch1: sugar-pippy-activity-34-sugar-1058.patch
-
+Requires: pygame
 Requires: python-gtksourceview  
 Requires: python  
-Requires: sugar-toolkit >= 0.86.1
+Requires: sugar-toolkit-gtk3 >= 0.86.1
+Requires: sugar
 
 BuildRequires: gettext  
 BuildRequires: python-devel  
-BuildRequires: sugar-toolkit >= 0.86.1
+BuildRequires: sugar-toolkit-gtk3 >= 0.86.1
 BuildArch:	noarch
 
 %description
@@ -33,9 +32,7 @@ The initial build ships with about twenty short Python examples covering
 various aspects of the language.
 
 %prep
-%setup -q -n Pippy-34
-%patch -p1
-%patch1 -p1
+%setup -q -n Pippy-%{version}
 
 %build
 rm -f MANIFEST
