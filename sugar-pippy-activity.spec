@@ -3,7 +3,7 @@
 
 Name: sugar-pippy-activity
 Version: 59
-Release: 1
+Release: 2
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
