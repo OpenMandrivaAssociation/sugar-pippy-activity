@@ -2,8 +2,8 @@
 #       See http://wiki.sugarlabs.org/go/Deployment_Team/jhconvert for details
 
 Name: sugar-pippy-activity
-Version: 59
-Release: 2
+Version: 66
+Release: 1
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
@@ -12,13 +12,13 @@ Url: http://sugarlabs.org/
 Source: http://download.sugarlabs.org/sources/sucrose/fructose/Pippy/Pippy-%{version}.tar.bz2
 
 Requires: pygame
-Requires: python-gtksourceview  
-Requires: python  
+Requires: python2-gtksourceview  
+Requires: python2  
 Requires: sugar-toolkit-gtk3 >= 0.86.1
 Requires: sugar
 
 BuildRequires: gettext  
-BuildRequires: python-devel  
+BuildRequires: python2-devel  
 BuildRequires: sugar-toolkit-gtk3 >= 0.86.1
 BuildArch:	noarch
 
@@ -36,10 +36,10 @@ various aspects of the language.
 
 %build
 rm -f MANIFEST
-python setup.py build
+python2 setup.py build
 
 %install
-python setup.py install --prefix=%{buildroot}/%{_prefix}
+python2 setup.py install --prefix=%{buildroot}/%{_prefix}
 find %{buildroot} -name '*.py.orig' -print0 | xargs -0 rm -f
 [ "`arch | grep i[0-9]86`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux32
 [ "`arch | grep x86_64`" ] || rm -rf %{buildroot}/%{_datadir}/sugar/activities/Pippy.activity/library/pippy/physics/box2d/box2d_linux64
