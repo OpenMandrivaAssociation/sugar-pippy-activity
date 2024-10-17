@@ -7,7 +7,7 @@ Release: 1
 Summary: Python programming activity for Sugar
 License: GPL
 Group: Graphical desktop/Other
-Url: http://sugarlabs.org/
+Url: https://sugarlabs.org/
 
 Source: http://download.sugarlabs.org/sources/sucrose/fructose/Pippy/Pippy-%{version}.tar.bz2
 
